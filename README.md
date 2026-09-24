@@ -14,7 +14,7 @@ favicon.svg
 
 ## Behaviour
 
-- **Every animation reverses on scroll-up.** Pinned chapters (services stack, horizontal statement, client stories) and the hero, word-lighting, parallax and 3D plate stack are all driven by scroll position. Entrance reveals (fade-ups, image wipes, counters, footer wordmark) play when an element's top crosses 90% of the viewport and play in reverse when you scroll back above it. The logo marquee follows scroll direction.
+- **Every animation reverses on scroll-up.** Pinned chapters (services stack, horizontal statement, client stories) and the hero, word-lighting, parallax and 3D plate stack are all driven by scroll position. Entrance reveals (fade-ups, image wipes, footer wordmark) are scrubbed by scroll position: they play in as an element rises from the bottom edge to 62% of the viewport, and rewind on screen as you scroll back up. Stat counters count up once in view and back down as they leave. The logo marquee follows scroll direction.
 - **Responsive:** the desktop nav and mega-menu appear at 900px and up. Below that there's a full-screen menu. Tablet and phone layouts rearrange the service cards, story controls, stats and footer. Pinned sections use `svh` units so mobile browser bars never hide content, and landscape phones get their own compact layout.
 - **Reduced motion:** with `prefers-reduced-motion`, the page shows every section in its final state: no intro, cursor, parallax or reveals.
 - The intro curtain plays once per browser session. Add `?intro` to the URL to replay it.

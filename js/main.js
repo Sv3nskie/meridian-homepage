@@ -98,9 +98,13 @@
   const glow = { el: $('[data-glow]'), box: $('#contact') };
   const reveals = $$('[data-reveal]').map((el) => ({
     el,
-    shown: false,
-    delay: parseFloat(el.style.getPropertyValue('--d')) * 1000 || 0,
-    counters: $$('[data-count]', el).map((c) => ({ el: c, to: parseFloat(c.dataset.count), suffix: c.dataset.suffix || '', v: 0, tw: null })),
+    kind: el.dataset.reveal || 'up',
+    // A stagger delay (--d, seconds) becomes a later start line, as a fraction of the viewport.
+    off: (parseFloat(el.style.getPropertyValue('--d')) || 0) * 0.3,
+    p: 0,
+    inner: $('.tile__reveal', el),
+    letters: el.dataset.reveal === 'letters' ? Array.from(el.children) : [],
+    counters: $$('[data-count]', el).map((c) => ({ el: c, to: parseFloat(c.dataset.count), suffix: c.dataset.suffix || '', v: 0, tw: null, on: false })),
   }));
   const counters = reveals.flatMap((r) => r.counters);
   const parallax = $$('[data-parallax]').map((el) => ({ el, box: el.closest('.tile'), f: parseFloat(el.dataset.parallax) || 0.07 }));
@@ -140,19 +144,38 @@
     measureRaf = requestAnimationFrame(measure);
   };
 
-  /* ───────────── Reveals (reversible) ───────────── */
-  function countTo(c, to, dur, delay) {
-    c.tw = { from: c.v, to, t0: performance.now() + delay, dur };
+  /* ───────────── Reveals (scrubbed, reversible) ───────────── */
+  const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+  const easeInOut = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+
+  function countTo(c, to, dur) {
+    c.tw = { from: c.v, to, t0: performance.now(), dur };
   }
-  function show(r) {
-    r.shown = true;
-    r.el.classList.add('is-in');
-    r.counters.forEach((c) => countTo(c, c.to, 1800, r.delay));
-  }
-  function hide(r) {
-    r.shown = false;
-    r.el.classList.remove('is-in');
-    r.counters.forEach((c) => countTo(c, 0, 700, 0));
+
+  // Paint one reveal at progress p (0 = hidden start state, 1 = fully revealed).
+  function paintReveal(r, p) {
+    const e = easeOut(p);
+    const op = clamp(p * 1.6).toFixed(3);
+    if (r.kind === 'clip') {
+      set(r.el, 'clipPath', `inset(0 0 ${((1 - easeInOut(p)) * 100).toFixed(2)}% 0 round 14px)`);
+      set(r.inner, 'transform', p >= 1 ? 'none' : `scale(${(1 + 0.18 * (1 - e)).toFixed(4)})`);
+    } else if (r.kind === 'letters') {
+      r.letters.forEach((l, i) => {
+        const li = easeOut(clamp(p * 1.5 - i * 0.07));
+        set(l, 'transform', li >= 1 ? 'none' : `translate3d(0, ${((1 - li) * 110).toFixed(1)}%, 0)`);
+      });
+    } else if (r.kind === 'scale') {
+      set(r.el, 'opacity', op);
+      set(r.el, 'transform', p >= 1 ? 'none' : `scale(${(0.92 + 0.08 * e).toFixed(4)})`);
+    } else {
+      set(r.el, 'opacity', op);
+      set(r.el, 'transform', p >= 1 ? 'none' : `translate3d(0, ${(36 * (1 - e)).toFixed(1)}px, 0)`);
+    }
+    // Counters run on time once the stat is mostly in, and count back down as it leaves.
+    for (const c of r.counters) {
+      if (!c.on && p > 0.55) { c.on = true; countTo(c, c.to, 1800); }
+      else if (c.on && p < 0.3) { c.on = false; countTo(c, 0, 700); }
+    }
   }
 
   /* ───────────── Loop state ───────────── */
@@ -337,14 +360,17 @@
       }
     }
 
-    /* Reveals — play in when the top crosses 90% of the viewport, reverse when it drops back below */
+    /* Reveals — progress runs from 0 as an element's top enters the bottom edge to 1
+       once it reaches 62% of the viewport, so scrolling back up rewinds it on screen. */
     if (motion) {
-      const line = VH * 0.9;
       const atBottom = y + innerHeight >= docH - 4;
       for (const r of reveals) {
         const top = r.top - y;
-        if (!r.shown) { if (top < line || atBottom) show(r); }
-        else if (top > line + 24 && !atBottom) hide(r);
+        if (r.p === 0 && top > VH * 1.2) continue; // still well below the fold
+        let target = clamp((VH * (1 - r.off) - top) / (VH * 0.38));
+        if (atBottom && top < VH) target = 1;
+        r.p = damp(r.p, target, 0.12, dt);
+        paintReveal(r, r.p);
       }
       for (const c of counters) {
         if (!c.tw || now < c.tw.t0) continue;

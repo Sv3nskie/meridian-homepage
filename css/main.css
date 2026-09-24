@@ -77,36 +77,15 @@ button { font: inherit; }
 .lede { margin: 0; font-size: 17px; line-height: 1.7; color: var(--color-neutral-300); max-width: 46ch; }
 
 /* ───────────────────────── Scroll reveals (reversible) ───────────────────────── */
-/* .is-in is toggled by JS in both directions: entering plays the reveal,
-   scrolling back up past the trigger line plays it in reverse. */
-.motion [data-reveal] {
-  opacity: 0;
-  transform: translate3d(0, 36px, 0);
-  transition: opacity .7s var(--ease-io), transform .8s var(--ease-io);
-}
-.motion [data-reveal].is-in {
-  opacity: 1;
-  transform: none;
-  transition: opacity 1s ease var(--d, 0s), transform 1.3s var(--ease-out) var(--d, 0s);
-}
-
+/* Start states only. JS scrubs every reveal from scroll position each frame
+   (smoothed), so it plays forwards scrolling down and backwards scrolling up,
+   in step with the page, while the element is still on screen. */
+.motion [data-reveal] { opacity: 0; transform: translate3d(0, 36px, 0); }
 .motion [data-reveal="scale"] { transform: scale(.92); }
-
-.motion [data-reveal="clip"] {
-  opacity: 1; transform: none;
-  clip-path: inset(0 0 100% 0 round var(--radius-lg));
-  transition: clip-path .9s var(--ease-io);
-}
-.motion [data-reveal="clip"].is-in {
-  clip-path: inset(0 0 0 0 round var(--radius-lg));
-  transition: clip-path 1.3s var(--ease-io) var(--d, 0s);
-}
-.motion [data-reveal="clip"] .tile__reveal { transform: scale(1.18); transition: transform 1s var(--ease-io); }
-.motion [data-reveal="clip"].is-in .tile__reveal { transform: none; transition: transform 1.8s var(--ease-out) var(--d, 0s); }
-
-.motion [data-reveal="letters"] { opacity: 1; transform: none; transition: none; }
-.motion [data-reveal="letters"] > span { transform: translate3d(0, 110%, 0); transition: transform .8s var(--ease-io); }
-.motion [data-reveal="letters"].is-in > span { transform: none; transition: transform 1.2s var(--ease-out) calc(var(--i) * 45ms); }
+.motion [data-reveal="clip"] { opacity: 1; transform: none; clip-path: inset(0 0 100% 0 round var(--radius-lg)); }
+.motion [data-reveal="clip"] .tile__reveal { transform: scale(1.18); }
+.motion [data-reveal="letters"] { opacity: 1; transform: none; }
+.motion [data-reveal="letters"] > span { transform: translate3d(0, 110%, 0); }
 
 /* ───────────────────────── Intro curtain ───────────────────────── */
 .intro { display: none; }
