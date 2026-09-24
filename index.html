@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meridian — Clarity for businesses built to last</title>
+<meta name="description" content="Meridian is an independent advisory partner for growing companies — strategy, brand and operations under one roof, led by senior people from first call to launch.">
+<meta name="theme-color" content="#161826">
+<meta name="color-scheme" content="dark">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Meridian — Clarity for businesses built to last">
+<meta property="og:description" content="Strategy, brand and operations under one roof, led by senior people from first call to launch.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1703696381789-3ef203ddf609?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=75">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="css/nocturne.css">
+<link rel="stylesheet" href="css/main.css">
+<script>
+  /* Runs before first paint: sets the motion + intro classes so hidden start
+     states never flash. Add ?intro to the URL to replay the intro curtain. */
+  (function () {
+    var d = document.documentElement, rm = false, seen = false;
+    d.classList.add('js');
+    try { rm = matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+    if (rm) return;
+    d.classList.add('motion');
+    try { seen = !!sessionStorage.getItem('meridian-intro-seen'); } catch (e) {}
+    if (/[?&]intro\b/.test(location.search)) seen = false;
+    if (!seen) d.classList.add('has-intro');
+  })();
+</script>
+<script src="js/main.js" defer></script>
+</head>
+<body>
+
+<a class="skip-link" href="#value">Skip to content</a>
+<div class="vh-probe" aria-hidden="true"></div>
+
+<!-- Intro curtain (first visit per session) -->
+<div class="intro" aria-hidden="true">
+  <div class="intro__inner">
+    <span class="intro__mask"><span class="intro__word">Meridian</span></span>
+    <span class="intro__line"></span>
+  </div>
+</div>
+
+<div class="cursor" aria-hidden="true"></div>
+
+<!-- Header -->
+<header class="nav" data-nav>
+  <div class="nav__bar">
+    <a href="#top" class="logo" aria-label="Meridian home"><span class="logo__mark"></span>Meridian</a>
+    <nav class="nav__links" aria-label="Main">
+      <span class="nav__svc" data-mega-trigger><a href="#services" class="nav__link">Services</a></span>
+      <a href="#solutions" class="nav__link">Solutions</a>
+      <a href="#about" class="nav__link">About</a>
+      <a href="#work" class="nav__link">Client stories</a>
+      <a href="#contact" class="nav__link">Contact</a>
+    </nav>
+    <a href="#contact" class="btn btn-primary btn-sm nav__cta" data-magnetic>Start a project</a>
+    <button type="button" class="btn btn-ghost btn-icon nav__toggle" data-menu-toggle aria-label="Open menu" aria-expanded="false" aria-controls="menu">
+      <svg class="nav__icon nav__icon--open" width="22" height="22" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"/></svg>
+      <svg class="nav__icon nav__icon--close" width="22" height="22" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></svg>
+    </button>
+  </div>
+  <span class="rule nav__rule"></span>
+
+  <!-- Services mega-menu (desktop, hover) -->
+  <div class="mega" data-mega>
+    <div class="mega__grid">
+      <a href="#services" class="mega__item" data-svc-go="0"><span class="mega__idx tnum">01</span><span class="mega__title">Strategy</span><span class="mega__desc">Positioning, growth and commercial models.</span></a>
+      <a href="#services" class="mega__item" data-svc-go="1"><span class="mega__idx tnum">02</span><span class="mega__title">Brand &amp; identity</span><span class="mega__desc">Naming, identity systems and voice.</span></a>
+      <a href="#services" class="mega__item" data-svc-go="2"><span class="mega__idx tnum">03</span><span class="mega__title">Digital &amp; product</span><span class="mega__desc">Websites, platforms and customer journeys.</span></a>
+      <a href="#services" class="mega__item" data-svc-go="3"><span class="mega__idx tnum">04</span><span class="mega__title">Operations</span><span class="mega__desc">Process, systems and team structure.</span></a>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile menu -->
+<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu" tabindex="-1">
+  <span class="menu__mask"><a href="#services" class="menu__link" style="--d:.15s">Services</a></span>
+  <span class="menu__mask"><a href="#solutions" class="menu__link" style="--d:.22s">Solutions</a></span>
+  <span class="menu__mask"><a href="#about" class="menu__link" style="--d:.29s">About</a></span>
+  <span class="menu__mask"><a href="#work" class="menu__link" style="--d:.36s">Client stories</a></span>
+  <span class="menu__mask"><a href="#contact" class="menu__link" style="--d:.43s">Contact</a></span>
+  <div class="menu__foot">
+    <span class="rule"></span>
+    <a href="#contact" class="btn btn-primary btn-block menu__cta">Start a project</a>
+    <span class="menu__contact">hello@meridian.example · +61 2 0000 0000</span>
+  </div>
+</div>
+
+<main id="top" class="page">
+
+  <!-- 1. Hero -->
+  <section id="hero" class="hero" aria-label="Introduction">
+    <div class="hero__zoom">
+      <div class="hero__scroll" data-hero-scroll>
+        <img class="cover lighten hero__img"
+          src="https://images.unsplash.com/photo-1703696381789-3ef203ddf609?auto=format&amp;fit=crop&amp;w=2400&amp;q=75"
+          srcset="https://images.unsplash.com/photo-1703696381789-3ef203ddf609?auto=format&amp;fit=crop&amp;w=800&amp;q=75 800w,
+                  https://images.unsplash.com/photo-1703696381789-3ef203ddf609?auto=format&amp;fit=crop&amp;w=1200&amp;q=75 1200w,
+                  https://images.unsplash.com/photo-1703696381789-3ef203ddf609?auto=format&amp;fit=crop&amp;w=1800&amp;q=75 1800w,
+                  https://images.unsplash.com/photo-1703696381789-3ef203ddf609?auto=format&amp;fit=crop&amp;w=2400&amp;q=75 2400w"
+          sizes="100vw" alt="" fetchpriority="high" decoding="async">
+        <div class="hero__shade"></div>
+      </div>
+    </div>
+
+    <div class="hero__copy" data-hero-copy>
+      <h1 class="hero__title">
+        <span class="mask"><span class="hero__line" data-line style="--d:0s">Clarity for</span></span>
+        <span class="mask"><span class="hero__line" data-line style="--d:.09s">businesses</span></span>
+        <span class="mask"><span class="hero__line hero__line--muted" data-line style="--d:.18s">built to last.</span></span>
+      </h1>
+      <p class="hero__lede" data-line style="--d:.27s">Meridian is an independent advisory partner for growing companies — strategy, brand and operations under one roof, led by senior people from first call to launch.</p>
+      <div class="hero__ctas" data-line style="--d:.36s">
+        <a href="#contact" class="btn btn-primary btn-lg" data-magnetic>Start a project <svg width="16" height="16" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
+        <a href="#services" class="btn btn-ghost btn-lg">Explore services</a>
+      </div>
+    </div>
+
+    <div class="hero__hint" aria-hidden="true">
+      <span>Scroll</span>
+      <span class="hero__track"><span class="hero__sweep"></span></span>
+    </div>
+  </section>
+
+  <!-- Everything below slides up over the pinned hero -->
+  <div id="sheet" class="sheet">
+
+    <!-- 2. Value proposition -->
+    <section id="value" class="value" aria-label="Why Meridian">
+      <span class="kicker" data-reveal>Why Meridian</span>
+      <p class="value__statement" data-words>Most businesses don’t need more noise. They need a <span data-accent>clear direction</span> — and a partner who sees it through.</p>
+      <div class="value__foot">
+        <p class="lede" data-reveal>We work with founders and leadership teams at the moments that matter: entering a new market, repositioning a brand, or scaling operations without losing what made the business work in the first place.</p>
+        <div data-reveal style="--d:.15s">
+          <a href="#about" class="btn btn-ghost btn-lg" data-magnetic>How we work <svg width="16" height="16" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Services — pinned card stack -->
+    <section id="services" class="services" aria-labelledby="services-title">
+      <div class="services__pin">
+        <div class="services__grid">
+          <div class="services__intro">
+            <div class="services__head">
+              <span class="kicker">01 — Services</span>
+              <h2 id="services-title" class="services__title"><span>think</span><span class="accent">clearer.</span></h2>
+            </div>
+            <div class="services__meta" aria-hidden="true">
+              <span class="services__bar"><span class="services__bar-fill" data-svc-bar></span></span>
+              <div>
+                <span class="services__idx tnum" data-svc-index>01</span>
+                <span class="services__titles">
+                  <span class="services__t is-active" data-svc-title>Strategy</span>
+                  <span class="services__t" data-svc-title>Brand &amp; identity</span>
+                  <span class="services__t" data-svc-title>Digital &amp; product</span>
+                  <span class="services__t" data-svc-title>Operations</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="services__stack">
+            <article class="svc-card" data-card>
+              <div class="svc-card__media">
+                <img class="cover lighten" loading="lazy" decoding="async" alt=""
+                  src="https://images.unsplash.com/photo-1788820194578-6391ad798609?auto=format&amp;fit=crop&amp;w=1600&amp;q=70"
+                  srcset="https://images.unsplash.com/photo-1788820194578-6391ad798609?auto=format&amp;fit=crop&amp;w=800&amp;q=70 800w,
+                          https://images.unsplash.com/photo-1788820194578-6391ad798609?auto=format&amp;fit=crop&amp;w=1200&amp;q=70 1200w,
+                          https://images.unsplash.com/photo-1788820194578-6391ad798609?auto=format&amp;fit=crop&amp;w=1600&amp;q=70 1600w"
+                  sizes="(min-width: 900px) 58vw, 92vw">
+              </div>
+              <div class="svc-card__body">
+                <span class="svc-card__idx tnum">01</span>
+                <h3 class="svc-card__title">Strategy</h3>
+                <p class="svc-card__desc">Market positioning, growth planning and commercial models — a clear plan your leadership team can stand behind.</p>
+                <a href="#contact" class="btn btn-secondary svc-card__btn">Explore</a>
+              </div>
+              <div class="svc-card__shade" data-shade></div>
+            </article>
+
+            <article class="svc-card" data-card>
+              <div class="svc-card__media">
+                <img class="cover lighten" loading="lazy" decoding="async" alt=""
+                  src="https://images.unsplash.com/photo-1613694699951-0f4c6c6cb9c2?auto=format&amp;fit=crop&amp;w=1600&amp;q=70"
+                  srcset="https://images.unsplash.com/photo-1613694699951-0f4c6c6cb9c2?auto=format&amp;fit=crop&amp;w=800&amp;q=70 800w,
+                          https://images.unsplash.com/photo-1613694699951-0f4c6c6cb9c2?auto=format&amp;fit=crop&amp;w=1200&amp;q=70 1200w,
+                          https://images.unsplash.com/photo-1613694699951-0f4c6c6cb9c2?auto=format&amp;fit=crop&amp;w=1600&amp;q=70 1600w"
+                  sizes="(min-width: 900px) 58vw, 92vw">
+              </div>
+              <div class="svc-card__body">
+                <span class="svc-card__idx tnum">02</span>
+                <h3 class="svc-card__title">Brand &amp; identity</h3>
+                <p class="svc-card__desc">Naming, identity systems and tone of voice that make a business instantly recognisable — and easy to choose.</p>
+                <a href="#contact" class="btn btn-secondary svc-card__btn">Explore</a>
+              </div>
+              <div class="svc-card__shade" data-shade></div>
+            </article>
+
+            <article class="svc-card" data-card>
+              <div class="svc-card__media">
+                <img class="cover lighten" loading="lazy" decoding="async" alt=""
+                  src="https://images.unsplash.com/photo-1702360174953-b9d72d5ddba2?auto=format&amp;fit=crop&amp;w=1600&amp;q=70"
+                  srcset="https://images.unsplash.com/photo-1702360174953-b9d72d5ddba2?auto=format&amp;fit=crop&amp;w=800&amp;q=70 800w,
+                          https://images.unsplash.com/photo-1702360174953-b9d72d5ddba2?auto=format&amp;fit=crop&amp;w=1200&amp;q=70 1200w,
+                          https://images.unsplash.com/photo-1702360174953-b9d72d5ddba2?auto=format&amp;fit=crop&amp;w=1600&amp;q=70 1600w"
+                  sizes="(min-width: 900px) 58vw, 92vw">
+              </div>
+              <div class="svc-card__body">
+                <span class="svc-card__idx tnum">03</span>
+                <h3 class="svc-card__title">Digital &amp; product</h3>
+                <p class="svc-card__desc">Websites, platforms and customer journeys designed around how people actually decide — built to convert and to last.</p>
+                <a href="#contact" class="btn btn-secondary svc-card__btn">Explore</a>
+              </div>
+              <div class="svc-card__shade" data-shade></div>
+            </article>
+
+            <article class="svc-card" data-card>
+              <div class="svc-card__media">
+                <img class="cover lighten" loading="lazy" decoding="async" alt=""
+                  src="https://images.unsplash.com/photo-1758520145408-dedb359d1c49?auto=format&amp;fit=crop&amp;w=1600&amp;q=70"
+                  srcset="https://images.unsplash.com/photo-1758520145408-dedb359d1c49?auto=format&amp;fit=crop&amp;w=800&amp;q=70 800w,
+                          https://images.unsplash.com/photo-1758520145408-dedb359d1c49?auto=format&amp;fit=crop&amp;w=1200&amp;q=70 1200w,
+                          https://images.unsplash.com/photo-1758520145408-dedb359d1c49?auto=format&amp;fit=crop&amp;w=1600&amp;q=70 1600w"
+                  sizes="(min-width: 900px) 58vw, 92vw">
+              </div>
+              <div class="svc-card__body">
+                <span class="svc-card__idx tnum">04</span>
+                <h3 class="svc-card__title">Operations</h3>
+                <p class="svc-card__desc">Process, systems and team structure that let you scale without the friction — fewer handoffs, faster decisions.</p>
+                <a href="#contact" class="btn btn-secondary svc-card__btn">Explore</a>
+              </div>
+              <div class="svc-card__shade" data-shade></div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Brand statement — pinned horizontal type -->
+    <section id="statement" class="statement" aria-label="What we stand for">
+      <div class="statement__pin">
+        <div class="statement__top">
+          <span class="kicker kicker--light">What we stand for</span>
+          <span class="statement__note">Keep scrolling</span>
+        </div>
+        <div class="statement__orb" data-orb aria-hidden="true"></div>
+        <p class="statement__track" data-st-track>Ambition into <span data-accent>direction. Direction</span> into businesses people remember.</p>
+        <div class="statement__bottom"><span>Meridian — Sydney · Melbourne · Remote</span><span>Since 2012</span></div>
+      </div>
+    </section>
+
+    <!-- 5. Featured solutions -->
+    <section id="solutions" class="solutions" aria-labelledby="solutions-title">
+      <div class="solutions__head" data-reveal>
+        <span class="kicker">02 — Featured solutions</span>
+        <h2 id="solutions-title" class="solutions__title">Built for the moments that shape a business.</h2>
+      </div>
+
+      <div class="solutions__list">
+        <article class="solution">
+          <div class="tile-tilt" data-tilt>
+            <div class="tile" data-reveal="clip">
+              <div class="tile__reveal"><div class="tile__depth" data-depth><div class="tile__parallax" data-parallax="0.07">
+                <img class="cover lighten" loading="lazy" decoding="async" alt=""
+                  src="https://images.unsplash.com/photo-1599529108753-5fcaac8e9512?auto=format&amp;fit=crop&amp;w=1600&amp;q=70"
+                  srcset="https://images.unsplash.com/photo-1599529108753-5fcaac8e9512?auto=format&amp;fit=crop&amp;w=800&amp;q=70 800w,
+                          https://images.unsplash.com/photo-1599529108753-5fcaac8e9512?auto=format&amp;fit=crop&amp;w=1200&amp;q=70 1200w,
+                          https://images.unsplash.com/photo-1599529108753-5fcaac8e9512?auto=format&amp;fit=crop&amp;w=1600&amp;q=70 1600w"
+                  sizes="(min-width: 900px) 50vw, 92vw">
+              </div></div></div>
+            </div>
+          </div>
+          <div class="solution__text">
+            <span class="solution__idx tnum" data-reveal>01 — Launch</span>
+            <h3 class="solution__title" data-reveal style="--d:.08s">Enter a new market with a plan, a brand and a launch — together.</h3>
+            <p class="lede solution__lede" data-reveal style="--d:.16s">A twelve-week programme taking you from market research to a live brand and site, with the commercial model to back it.</p>
+            <div data-reveal style="--d:.24s"><a href="#contact" class="btn btn-secondary btn-md" data-magnetic>Plan a launch</a></div>
+          </div>
+        </article>
+
+        <article class="solution solution--flip">
+          <div class="tile-tilt" data-tilt>
+            <div class="tile" data-reveal="clip">
+              <div class="tile__reveal"><div class="tile__depth" data-depth><div class="tile__parallax" data-parallax="0.07">
+                <img class="cover lighten" loading="lazy" decoding="async" alt=""
+                  src="https://images.unsplash.com/photo-1623055960919-4e91ce1ab11c?auto=format&amp;fit=crop&amp;w=1600&amp;q=70"
+                  srcset="https://images.unsplash.com/photo-1623055960919-4e91ce1ab11c?auto=format&amp;fit=crop&amp;w=800&amp;q=70 800w,
+                          https://images.unsplash.com/photo-1623055960919-4e91ce1ab11c?auto=format&amp;fit=crop&amp;w=1200&amp;q=70 1200w,
+                          https://images.unsplash.com/photo-1623055960919-4e91ce1ab11c?auto=format&amp;fit=crop&amp;w=1600&amp;q=70 1600w"
+                  sizes="(min-width: 900px) 50vw, 92vw">
+              </div></div></div>
+            </div>
+          </div>
+          <div class="solution__text">
+            <span class="solution__idx tnum" data-reveal>02 — Reposition</span>
+            <h3 class="solution__title" data-reveal style="--d:.08s">Outgrown your brand? Reset how the market sees you.</h3>
+            <p class="lede solution__lede" data-reveal style="--d:.16s">Positioning, identity and messaging rebuilt around where the business is going — rolled out without losing the customers you have.</p>
+            <div data-reveal style="--d:.24s"><a href="#contact" class="btn btn-secondary btn-md" data-magnetic>Talk repositioning</a></div>
+          </div>
+        </article>
+
+        <article class="solution">
+          <div class="tile-tilt" data-tilt>
+            <div class="tile" data-reveal="clip">
+              <div class="tile__reveal"><div class="tile__depth" data-depth><div class="tile__parallax" data-parallax="0.07">
+                <img class="cover lighten" loading="lazy" decoding="async" alt=""
+                  src="https://images.unsplash.com/photo-1685107306307-147226ea476f?auto=format&amp;fit=crop&amp;w=1600&amp;q=70"
+                  srcset="https://images.unsplash.com/photo-1685107306307-147226ea476f?auto=format&amp;fit=crop&amp;w=800&amp;q=70 800w,
+                          https://images.unsplash.com/photo-1685107306307-147226ea476f?auto=format&amp;fit=crop&amp;w=1200&amp;q=70 1200w,
+                          https://images.unsplash.com/photo-1685107306307-147226ea476f?auto=format&amp;fit=crop&amp;w=1600&amp;q=70 1600w"
+                  sizes="(min-width: 900px) 50vw, 92vw">
+              </div></div></div>
+            </div>
+          </div>
+          <div class="solution__text">
+            <span class="solution__idx tnum" data-reveal>03 — Scale</span>
+            <h3 class="solution__title" data-reveal style="--d:.08s">Grow the team and the numbers without growing the chaos.</h3>
+            <p class="lede solution__lede" data-reveal style="--d:.16s">Operating model, systems and digital tooling designed for the next stage — so growth feels like momentum, not friction.</p>
+            <div data-reveal style="--d:.24s"><a href="#contact" class="btn btn-secondary btn-md" data-magnetic>Plan for scale</a></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 6. About / credibility -->
+    <section id="about" class="about" aria-labelledby="about-title">
+      <div class="about__grid">
+        <div class="about__copy">
+          <span class="kicker" data-reveal>03 — About Meridian</span>
+          <h2 id="about-title" class="about__title" data-reveal style="--d:.08s">Four disciplines. One senior team.</h2>
+          <p class="lede about__lede" data-reveal style="--d:.16s">Founded in 2012, Meridian brings strategists, designers and operators together in small, senior teams. No hand-offs to juniors, no templated playbooks — just the people you met, doing the work.</p>
+          <div class="stats">
+            <div class="stat" data-reveal style="--d:.2s">
+              <p class="stat__num tnum" data-count="14">14</p>
+              <p class="stat__label">Years in practice</p>
+            </div>
+            <div class="stat" data-reveal style="--d:.28s">
+              <p class="stat__num tnum" data-count="180" data-suffix="+">180+</p>
+              <p class="stat__label">Engagements delivered</p>
+            </div>
+            <div class="stat" data-reveal style="--d:.36s">
+              <p class="stat__num tnum" data-count="92" data-suffix="%">92%</p>
+              <p class="stat__label">Clients who return</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="stage-wrap" data-stage-wrap role="img" aria-label="Four stacked layers: Strategy, Brand and identity, Digital and product, Operations">
+          <div class="stage" data-stage aria-hidden="true">
+            <div class="plate" data-plate style="--z:-54px">
+              <span class="plate__top"><span>04</span><span>Operations</span></span>
+              <span class="plate__line" style="width:36%"></span>
+            </div>
+            <div class="plate" data-plate style="--z:-18px">
+              <span class="plate__top"><span>03</span><span>Digital &amp; product</span></span>
+              <span class="plate__line" style="width:52%"></span>
+            </div>
+            <div class="plate" data-plate style="--z:18px">
+              <span class="plate__top"><span>02</span><span>Brand &amp; identity</span></span>
+              <span class="plate__line" style="width:68%"></span>
+            </div>
+            <div class="plate plate--front" data-plate style="--z:54px">
+              <span class="plate__top"><span>01</span><span>Strategy</span></span>
+              <span class="plate__foot"><span class="plate__title">One team, four layers.</span><span class="plate__line" style="width:84%"></span></span>
+            </div>
+          </div>
+          <span class="stage-wrap__caption" aria-hidden="true"><span class="caption--hover">Scroll and hover to explore</span><span class="caption--touch">Scroll and tap to explore</span></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="cred" aria-label="Clients">
+      <div class="container"><span class="rule"></span></div>
+      <div class="cred__head">
+        <span class="kicker" data-reveal>Trusted by leadership teams at</span>
+        <span class="cred__note" data-reveal style="--d:.08s">180+ engagements across Australia and APAC</span>
+      </div>
+      <div class="marquee" data-marquee-wrap>
+        <div class="marquee__track" data-marquee>
+          <div class="marquee__group" data-marquee-group>
+            <span>Harbour Goods</span><span>Lumen Health</span><span>Northgate Logistics</span><span>Aster &amp; Vale</span><span>Fieldstone Capital</span><span>Kestrel Energy</span><span>Marlow Studio</span><span>Orbit Freight</span>
+          </div>
+          <div class="marquee__group" aria-hidden="true">
+            <span>Harbour Goods</span><span>Lumen Health</span><span>Northgate Logistics</span><span>Aster &amp; Vale</span><span>Fieldstone Capital</span><span>Kestrel Energy</span><span>Marlow Studio</span><span>Orbit Freight</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Client stories — pinned horizontal track -->
+    <section id="work" class="work" aria-labelledby="work-title">
+      <div class="work__pin">
+        <div class="work__head">
+          <div>
+            <span class="kicker">04 — Client stories</span>
+            <h2 id="work-title" class="work__title">In their words.</h2>
+          </div>
+          <div class="work__controls work__controls--head">
+            <span class="work__count tnum"><b data-work-index>01</b> / 03</span>
+            <button type="button" class="btn btn-secondary btn-round" data-work-prev aria-label="Previous story"><svg width="18" height="18" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"/></svg></button>
+            <button type="button" class="btn btn-secondary btn-round" data-work-next aria-label="Next story"><svg width="18" height="18" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"/></svg></button>
+          </div>
+        </div>
+
+        <div class="work__viewport">
+          <div class="work__track" data-work-track>
+            <figure class="story">
+              <img class="cover lighten" loading="lazy" decoding="async" alt=""
+                src="https://images.unsplash.com/photo-1453396450673-3fe83d2db2c4?auto=format&amp;fit=crop&amp;w=1600&amp;q=70"
+                srcset="https://images.unsplash.com/photo-1453396450673-3fe83d2db2c4?auto=format&amp;fit=crop&amp;w=800&amp;q=70 800w,
+                        https://images.unsplash.com/photo-1453396450673-3fe83d2db2c4?auto=format&amp;fit=crop&amp;w=1200&amp;q=70 1200w,
+                        https://images.unsplash.com/photo-1453396450673-3fe83d2db2c4?auto=format&amp;fit=crop&amp;w=1600&amp;q=70 1600w"
+                sizes="(min-width: 720px) 64vw, 86vw">
+              <div class="story__shade"></div>
+              <figcaption class="story__cap">
+                <blockquote class="story__quote">“Meridian gave us the clarity to make a decision we’d been circling for two years. Six months later we’re in three new markets.”</blockquote>
+                <div class="story__meta">
+                  <span class="story__who"><span class="story__name">Alex Morgan</span><span class="story__role">CEO, Harbour Goods</span></span>
+                  <span class="tag tag-accent">Strategy · Launch</span>
+                </div>
+              </figcaption>
+            </figure>
+
+            <figure class="story">
+              <img class="cover lighten" loading="lazy" decoding="async" alt=""
+                src="https://images.unsplash.com/photo-1516117525866-d85459db7457?auto=format&amp;fit=crop&amp;w=1600&amp;q=70"
+                srcset="https://images.unsplash.com/photo-1516117525866-d85459db7457?auto=format&amp;fit=crop&amp;w=800&amp;q=70 800w,
+                        https://images.unsplash.com/photo-1516117525866-d85459db7457?auto=format&amp;fit=crop&amp;w=1200&amp;q=70 1200w,
+                        https://images.unsplash.com/photo-1516117525866-d85459db7457?auto=format&amp;fit=crop&amp;w=1600&amp;q=70 1600w"
+                sizes="(min-width: 720px) 64vw, 86vw">
+              <div class="story__shade"></div>
+              <figcaption class="story__cap">
+                <blockquote class="story__quote">“The new brand finally looks like the company we’ve become. Enquiries doubled in the first quarter after launch.”</blockquote>
+                <div class="story__meta">
+                  <span class="story__who"><span class="story__name">Priya Shah</span><span class="story__role">Founder, Lumen Health</span></span>
+                  <span class="tag tag-accent">Brand · Digital</span>
+                </div>
+              </figcaption>
+            </figure>
+
+            <figure class="story">
+              <img class="cover lighten" loading="lazy" decoding="async" alt=""
+                src="https://images.unsplash.com/photo-1544502062-f82887f03d1c?auto=format&amp;fit=crop&amp;w=1600&amp;q=70"
+                srcset="https://images.unsplash.com/photo-1544502062-f82887f03d1c?auto=format&amp;fit=crop&amp;w=800&amp;q=70 800w,
+                        https://images.unsplash.com/photo-1544502062-f82887f03d1c?auto=format&amp;fit=crop&amp;w=1200&amp;q=70 1200w,
+                        https://images.unsplash.com/photo-1544502062-f82887f03d1c?auto=format&amp;fit=crop&amp;w=1600&amp;q=70 1600w"
+                sizes="(min-width: 720px) 64vw, 86vw">
+              <div class="story__shade"></div>
+              <figcaption class="story__cap">
+                <blockquote class="story__quote">“They didn’t hand us a deck and leave. They rebuilt how we operate, alongside our team, and stayed until it stuck.”</blockquote>
+                <div class="story__meta">
+                  <span class="story__who"><span class="story__name">Tom Reilly</span><span class="story__role">COO, Northgate Logistics</span></span>
+                  <span class="tag tag-accent">Operations · Scale</span>
+                </div>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="work__foot">
+          <span class="work__line"><span class="work__line-fill" data-work-line></span></span>
+          <div class="work__controls work__controls--foot">
+            <span class="work__count tnum"><b data-work-index>01</b> / 03</span>
+            <button type="button" class="btn btn-secondary btn-round" data-work-prev aria-label="Previous story"><svg width="18" height="18" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"/></svg></button>
+            <button type="button" class="btn btn-secondary btn-round" data-work-next aria-label="Next story"><svg width="18" height="18" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Final CTA -->
+    <section id="contact" class="contact" aria-labelledby="contact-title">
+      <div class="contact__glow" data-glow aria-hidden="true"></div>
+      <div class="contact__inner">
+        <div class="contact__grid">
+          <div>
+            <h2 id="contact-title" class="contact__title" data-reveal="scale"><span>Let’s talk about</span><span class="accent">what’s next.</span></h2>
+            <p class="contact__lede" data-reveal style="--d:.12s">Tell us where you’re headed. A partner will reply within one business day to set up a no-obligation conversation.</p>
+            <div class="contact__lines" data-reveal style="--d:.2s">
+              <a href="mailto:hello@meridian.example">hello@meridian.example</a>
+              <span class="muted">+61 2 0000 0000</span>
+            </div>
+          </div>
+
+          <div class="card contact__card" data-reveal style="--d:.15s">
+            <!-- Set data-endpoint to a form service URL (e.g. Formspree) to deliver enquiries. -->
+            <form class="form" data-form data-endpoint="">
+              <div class="form__row">
+                <label class="field"><span class="field__label">Name</span><input class="input" name="name" required autocomplete="name"></label>
+                <label class="field"><span class="field__label">Email</span><input class="input" type="email" name="email" required autocomplete="email"></label>
+              </div>
+              <label class="field"><span class="field__label">Company</span><input class="input" name="company" autocomplete="organization"></label>
+              <label class="field"><span class="field__label">What are you working on?</span><textarea class="input" name="message" rows="4"></textarea></label>
+              <button type="submit" class="btn btn-primary btn-lg form__submit" data-magnetic>Send enquiry</button>
+            </form>
+            <div class="success" data-success role="status" tabindex="-1" hidden>
+              <span class="success__icon"><svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/></svg></span>
+              <h3 class="success__title">Thanks — we’ll be in touch.</h3>
+              <p class="success__text">A partner will reply within one business day.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. Footer -->
+    <footer class="footer">
+      <div class="wordmark" data-reveal="letters" aria-hidden="true"><span style="--i:0">M</span><span style="--i:1">e</span><span style="--i:2">r</span><span style="--i:3">i</span><span style="--i:4">d</span><span style="--i:5">i</span><span style="--i:6">a</span><span style="--i:7">n</span></div>
+      <span class="rule footer__rule"></span>
+      <div class="footer__cols">
+        <div class="footer__brand">
+          <span class="logo logo--static"><span class="logo__mark"></span>Meridian</span>
+          <p class="footer__tag">Strategy, brand and operations for growing companies.</p>
+        </div>
+        <nav class="footer__col" aria-label="Services">
+          <span class="footer__h">Services</span>
+          <a href="#services" data-svc-go="0">Strategy</a>
+          <a href="#services" data-svc-go="1">Brand &amp; identity</a>
+          <a href="#services" data-svc-go="2">Digital &amp; product</a>
+          <a href="#services" data-svc-go="3">Operations</a>
+        </nav>
+        <nav class="footer__col" aria-label="Company">
+          <span class="footer__h">Company</span>
+          <a href="#about">About</a>
+          <a href="#work">Client stories</a>
+          <a href="#solutions">Solutions</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <div class="footer__col footer__contact">
+          <span class="footer__h">Contact</span>
+          <a href="mailto:hello@meridian.example">hello@meridian.example</a>
+          <span class="footer__text">+61 2 0000 0000</span>
+          <span class="muted">Level 4, 100 Example St, Sydney NSW</span>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 Meridian Advisory Pty Ltd</span>
+        <div class="footer__legal">
+          <a href="#">LinkedIn</a>
+          <a href="#">Instagram</a>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Accessibility</a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+</main>
+
+<!-- Placeholder photography: Unsplash (John Murphey, Bruno BD, Vitor Paladini, Sergio Franklin,
+     Vitaly Gariev, Martin Laprise, Joshua Fernandez, Maxim, Drew, Richard Jaimes, Joe Shields). -->
+</body>
+</html>
