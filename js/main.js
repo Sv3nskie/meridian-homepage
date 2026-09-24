@@ -96,8 +96,15 @@
   };
   const mq = { wrap: $('[data-marquee-wrap]'), el: $('[data-marquee]'), group: $('[data-marquee-group]') };
   const glow = { el: $('[data-glow]'), box: $('#contact') };
-  const reveals = $$('[data-reveal]').map((el) => ({
+  const reveals = $$('[data-reveal]').map((el) => {
+    // Reveal window as viewport fractions: starts when the element's top reaches `start`,
+    // completes at `end`. A section can override it with data-reveal-window="start end".
+    const win = el.closest('[data-reveal-window]');
+    const [start, end] = win ? win.dataset.revealWindow.split(/\s+/).map(Number) : [1, 0.62];
+    return {
     el,
+    start,
+    end,
     kind: el.dataset.reveal || 'up',
     // A stagger delay (--d, seconds) becomes a later start line, as a fraction of the viewport.
     off: (parseFloat(el.style.getPropertyValue('--d')) || 0) * 0.3,
@@ -105,7 +112,8 @@
     inner: $('.tile__reveal', el),
     letters: el.dataset.reveal === 'letters' ? Array.from(el.children) : [],
     counters: $$('[data-count]', el).map((c) => ({ el: c, to: parseFloat(c.dataset.count), suffix: c.dataset.suffix || '', v: 0, tw: null, on: false })),
-  }));
+    };
+  });
   const counters = reveals.flatMap((r) => r.counters);
   const parallax = $$('[data-parallax]').map((el) => ({ el, box: el.closest('.tile'), f: parseFloat(el.dataset.parallax) || 0.07 }));
 
@@ -360,14 +368,14 @@
       }
     }
 
-    /* Reveals — progress runs from 0 as an element's top enters the bottom edge to 1
-       once it reaches 62% of the viewport, so scrolling back up rewinds it on screen. */
+    /* Reveals — progress runs from 0 as an element's top crosses its window start (default:
+       the bottom edge) to 1 at its window end (default 62%), so scrolling up rewinds it on screen. */
     if (motion) {
       const atBottom = y + innerHeight >= docH - 4;
       for (const r of reveals) {
         const top = r.top - y;
         if (r.p === 0 && top > VH * 1.2) continue; // still well below the fold
-        let target = clamp((VH * (1 - r.off) - top) / (VH * 0.38));
+        let target = clamp((VH * (r.start - r.off) - top) / (VH * (r.start - r.end)));
         if (atBottom && top < VH) target = 1;
         r.p = damp(r.p, target, 0.12, dt);
         paintReveal(r, r.p);
